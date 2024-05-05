@@ -1,0 +1,31 @@
+{
+    "name": "faiznurullah/gemini-php-unofficial",
+    "description": "package for integrated gemini AI with php projects",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Faiznurullah\\Gemini\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Faiz Nurullah"
+        }
+    ],
+    "require": {
+        "guzzlehttp/guzzle": "^7.8",
+        "phpfastcache/phpfastcache": "^9.2",
+        "illuminate/support": "^9.0"
+    }, 
+    "extra": {
+        "laravel": {
+          "providers": [
+            "Faiznurullah\\Gemini\\GeminiServiceProvider"
+          ],
+          "aliases": {
+            "Gemini": "Faiznurullah\\Gemini\\GeminiFacade"
+          }
+        }
+      }
+}
