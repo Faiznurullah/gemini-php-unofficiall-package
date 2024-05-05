@@ -1,7 +1,7 @@
 <?php
 require_once '../gemini.php';
-$gemini = new Faiznurullah\Gemini\Gemini;
 $apikey = 'API KEY';
+$gemini = new Faiznurullah\Gemini\Gemini($apikey);
 $text = 'Siapa CEO Google Sekarang?';
 $response = $gemini->generateFromText($apikey, $text);
 $response_decode = json_decode($response, true);

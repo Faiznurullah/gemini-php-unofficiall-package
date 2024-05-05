@@ -8,9 +8,15 @@ use GuzzleHttp\Client;
 
 class Gemini {
 
-    function generateFromText($apikey, $text){ 
+    public $apikey;
+    public function __construct($apikey)
+      {
+         $this->apikey = $apikey; 
+      }
 
-        $url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=' . $apikey;
+    function generateFromText($text){ 
+
+        $url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=' . $this->apikey;
         $new_client = new Client();
         $data = [
             'contents' => [

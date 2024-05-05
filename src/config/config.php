@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'api_key' => 'Your API key',
+    'API_KEY_GEMINI' => 'Your API key',
 ];

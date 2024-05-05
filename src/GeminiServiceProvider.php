@@ -9,8 +9,7 @@ class GeminiServiceProvider extends ServiceProvider
 
     public function boot()
     {
-  
-        
+          
     }
 
     public function register()
@@ -18,7 +17,7 @@ class GeminiServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'gemini');
 
         $this->app->singleton('gemini', function () {
-            return new Gemini(Config::get('gemini.api_key'));
+            return new Gemini(Config::get('gemini.API_KEY_GEMINI'));
         });
     }
 }
