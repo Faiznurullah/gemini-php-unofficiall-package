@@ -14,7 +14,7 @@ class GeminiServiceProvider extends ServiceProvider
 
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'gemini');
+        $this->mergeConfigFrom(__DIR__ . './config/config.php', 'gemini');
 
         $this->app->singleton('gemini', function () {
             return new Gemini(Config::get('gemini.API_KEY_GEMINI'));
