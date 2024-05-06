@@ -2,21 +2,20 @@
 
 namespace Faiznurullah\Gemini;
 
-require_once __DIR__ . '/../vendor/autoload.php';
 use GuzzleHttp\Client;
 
 
 class Gemini {
 
     public $apikey;
-    public function __construct($apikey)
+    public function __construct($apikey = null)
       {
-         $this->apikey = $apikey; 
+         $this->apikey = $apikey ?? env('API_KEY_GEMINI'); 
       }
 
-    function generateFromText($text){ 
+    public static function generateFromText($text){ 
 
-        $url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=' . $this->apikey;
+        $url = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=' . env('API_KEY_GEMINI');;
         $new_client = new Client();
         $data = [
             'contents' => [
