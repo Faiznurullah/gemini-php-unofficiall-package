@@ -21,13 +21,14 @@ class Gemini {
             'contents' => [
                  [
                      'parts' => [
-                        [
+                          [
                             'text' => $text
                           ]
                   ]
             ]
             ]
         ]; 
+
         $response = $new_client->request('POST', $url, [
             'headers' => [
                 'Content-Type'  => 'application/json',
