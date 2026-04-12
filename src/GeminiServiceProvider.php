@@ -14,10 +14,14 @@ class GeminiServiceProvider extends ServiceProvider
 
     public function register()
     {
-        $this->mergeConfigFrom(__DIR__ . './config/config.php', 'gemini');
+        $this->mergeConfigFrom(__DIR__ . '/config/config.php', 'gemini');
 
         $this->app->singleton('gemini', function () {
-            return new Gemini(Config::get('gemini.API_KEY_GEMINI'));
+            $gemini = new Gemini(Config::get('gemini.API_KEY_GEMINI'));
+            $gemini->setDefaultModel(Config::get('gemini.DEFAULT_MODEL', 'gemini-1.5-flash'));
+            $gemini->timeout = (float) Config::get('gemini.TIMEOUT', 30);
+
+            return $gemini;
         });
     }
 }
